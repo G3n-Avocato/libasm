@@ -17,17 +17,24 @@ int main(int argc, char **argv) {
     const char  *str = argv[1];
     int         len = ft_strlen(str);
 
-    printf("string = %s\n", str);
-    printf("ft_strlen = %d\n", len);
+    printf("string 1 = %s\n", str);
+    printf("ft_strlen 1 = %d\n", len);
+
+    const char  *str2 = "strlen static";
+    int         len2 = ft_strlen(str2);
+
+    printf("string 2 = %s\n", str2);
+    printf("ft_strlen 2 = %d\n\n", len2);
 
     //////////////////////////
     //      FT_STRCPY       //
     //////////////////////////
 
-    const char  *src = str;
-    char        *dest = malloc(sizeof(char) * (len + 1));
+    const char  *src = "ft_strcpy";
+    int         src_len = ft_strlen(src);
+    char        *dest = malloc(sizeof(char) * (src_len + 1));
 
-    dest = ft_strcpy(dest, src);
+    ft_strcpy(dest, src);
     printf("src = %s\ndest = %s\n", src, dest);
     
     free(dest);
