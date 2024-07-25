@@ -5,7 +5,8 @@ EXEC = libasm
 SRCS = main.c
 
 SRCS_FT = ft_strlen.s \
-		ft_strcpy.s
+		ft_strcpy.s \
+		ft_strcmp.s
 
 OBJS = $(SRCS_FT:.s=.o)
 
@@ -14,7 +15,7 @@ NASM_FLAGS = -f elf64
 all: $(NAME)
 	clang -g -o $(EXEC) $(SRCS) $(NAME)
 	
-%.o: %.s 
+%.o: %.s
 	nasm $(NASM_FLAGS) $< -o $@
 
 $(NAME): $(OBJS)
