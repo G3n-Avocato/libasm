@@ -13,6 +13,5 @@ _ft_strlen_loop:
     jmp _ft_strlen_loop
 _ft_strlen_null:
     mov rax, rcx
-    ;pop rcx
     pop rdi
     ret
