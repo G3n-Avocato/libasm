@@ -1,3 +1,5 @@
+GREEN=\033[32m
+
 NAME = libasm.a
 
 EXEC = libasm
@@ -16,19 +18,21 @@ OBJS = $(SRCS_FT:.s=.o)
 NASM_FLAGS = -f elf64
 
 all: $(NAME)
-	clang -g -o $(EXEC) $(SRCS) $(NAME)
+	@clang -g -o $(EXEC) $(SRCS) $(NAME)
+	@printf "$(GREEN)> MAKE OK!\n"
 	
 %.o: %.s
-	nasm $(NASM_FLAGS) $< -o $@
+	@nasm $(NASM_FLAGS) $< -o $@
 
 $(NAME): $(OBJS)
-	ar rcs $@ $(OBJS)
+	@ar rcs $@ $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(EXEC)
+	@rm -f $(NAME) $(EXEC)
+	@printf "$(GREEN)> CLEAN OK!\n"
 
 re: fclean all
 
