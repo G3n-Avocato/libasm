@@ -7,12 +7,12 @@
 #include <sys/stat.h>//open
 #include <fcntl.h>//open
 
-size_t   ft_strlen(const char* str);
-char*    ft_strcpy(char *dest, const char* src);
-int      ft_strcmp(const char *s1, const char *s2);
-ssize_t  ft_write(int fd, const void *buf, size_t nbyte);
-ssize_t  ft_read(int fd, void *buf, size_t nbyte);
-char*    ft_strdup(const char* s);
+extern size_t   ft_strlen(const char* str);
+extern char*    ft_strcpy(char *dest, const char* src);
+extern int      ft_strcmp(const char *s1, const char *s2);
+extern ssize_t  ft_write(int fd, const void *buf, size_t nbyte);
+extern ssize_t  ft_read(int fd, void *buf, size_t nbyte);
+extern char*    ft_strdup(const char* s);
 
 int main(int argc, char **argv) {
     
@@ -159,46 +159,81 @@ int main(int argc, char **argv) {
 
     int     size = 150;
 
-    char    buf_real[size];
-    ssize_t bytesreadreal;
+    char    buf1[size];
+    ssize_t bytes1;
+
     int     fd = open("ft_strlen.s", O_RDONLY);
-    
     if (fd == -1) {
-        printf("\033[31mError open fct\033[0m\n");
+        printf("\033[31mError open file\033[0m\n");
         return (1);
     }
 
-    bytesreadreal = read(fd, buf_real, size - 1);
-    if (bytesreadreal == -1)
+    bytes1 = read(fd, buf1, size - 1);
+    if (bytes1 == -1)
         printf("\033[31mError read fct\033[0m\n");
-    buf_real[bytesreadreal] = '\0';
+    buf1[bytes1] = '\0';
     
-    printf("\033[32mBuf read unistd.h => \033[0m\n%s\n\n\033[32mbytes read = \033[0m%zd\n", buf_real, bytesreadreal);
+    printf("\033[32mBuf read unistd.h => \033[0m\n%s\n\n\033[32mbytes read = \033[0m%zd\n", buf1, bytes1);
     close(fd);
     printf("\n");
 
-    char    buf[size];
-    ssize_t bytesread;
+    char    buf2[size];
+    ssize_t bytes2;
 
     fd = open("ft_strlen.s", O_RDONLY);    
     if (fd == -1) {
-        printf("\033[31mError open fct\033[0m\n");
+        printf("\033[31mError open file\033[0m\n");
         return (1);
     }
 
-    bytesread = ft_read(fd, buf, size - 1);
-    if (bytesread == -1)
+    bytes2 = ft_read(fd, buf2, size - 1);
+    if (bytes2 == -1)
         printf("\033[31mError ft_read fct\033[0m\n");
 
-    buf[bytesread] = '\0';
-    printf("\033[33mBuf ft_read => \033[0m\n%s\n\n\033[33mbytes ft_read = \033[0m%zd\n", buf, bytesread);
+    buf2[bytes2] = '\0';
+    printf("\033[33mBuf ft_read => \033[0m\n%s\n\n\033[33mbytes ft_read = \033[0m%zd\n", buf2, bytes2);
 
     close(fd);
     printf("\n");
     
-    char    
-
-
+    //char    buf3[size];
+    //ssize_t bytes3;
+//
+    //fd = open("empty_file.txt", O_RDONLY);
+    //if (fd == -1) {
+    //    printf("\033[31mError open file\033[0m\n");
+    //    return (1); 
+    //}
+//
+    //bytes3 = read(fd, buf3, size - 1);
+    //if (bytes3 == -1)
+    //    printf("\033[31mError read fct\033[0m\n");
+//
+    //buf3[bytes3] = '\0';
+    //printf("\033[33mBuf read => \033[0m\n%s\n\n\033[33mbytes read = \033[0m%zd\n", buf3, bytes3);
+//
+    //close(fd);
+    //printf("\n");
+//
+    //char    buf4[size];
+    //ssize_t bytes4;
+//
+    //fd = open("empty_file.txt", O_RDONLY);
+    //if (fd == -1) {
+    //    printf("\033[31mError open file\033[0m\n");
+    //    return (1); 
+    //}
+//
+    //bytes4 = ft_read(fd, buf4, size - 1);
+    //if (bytes4 == -1)
+    //    printf("\033[31mError ft_read fct\033[0m\n");
+//
+    //buf4[bytes4] = '\0';
+    //printf("\033[33mBuf ft_read => \033[0m\n%s\n\n\033[33mbytes read = \033[0m%zd\n", buf4, bytes4);
+//
+    //close(fd);
+    //printf("\n");
+//
     //////////////////////////
     //      FT_STRDUP       //
     //////////////////////////
