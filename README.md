@@ -1,12 +1,11 @@
 # libasm
- - Doc for lib asm x86_64  
-Intel Syntax :   <_instruction_> <_dest_>, <_src_>
+**Intel Syntax :   <_instruction_> <_dest_>, <_src_>**
 
 ## Doc ASM x86_64 linux
 * Section
-    * section .data -- declare initialized data or constants
-    * section .bss -- declare variables
-    * section .text -- keep the actual code, start with "global <_name_start_>
+    * **section .data** -- declare initialized data or constants
+    * **section .bss** -- declare variables
+    * **section .text** -- keep the actual code, start with "global <_name_start_>
 
 * General Registers
     * rax -- n* syscall -- input/output for return fct
@@ -54,14 +53,14 @@ Intel Syntax :   <_instruction_> <_dest_>, <_src_>
     * JE -- "Jump if Equal" - jump to label if ZF = 1 (Zero-flag == 1 if res from previous operations is 0)
     * JE == JZ -- "Jump if zero"
     * JNE == JNZ -- "Jump if Not Zero/Equal"
-
-    * signee
+  
+    * * signed
     * JG -- "Jump if Greater"
     * JGE -- "Jump if Greater or Equal"
     * JL -- "Jump if Less"
     * JLE -- "Jump if Less or Equal
-
-    * non signee
+  
+    * * unsigned
     * JA -- "Jump if Above"
     * JAE -- "Jump if Above or Equal"
     * JB -- "Jump if Below"
