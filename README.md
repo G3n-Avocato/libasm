@@ -44,7 +44,7 @@
 
 * **CALL <_label_>** -- 
 * **MOV <_dest_>, <_src_>** -- copy src content to dest 
-* **XCHG <_dest_>, <_src_>** -- "exchange" echange contenue de src avec dest
+* **XCHG <_dest_>, <_src_>** -- "exchange" src content with dest
 
 * **JMP <_label_>** -- jump to the instruction pointed by label
 * **CMP <_dest_>, <_src_>** -- compare instruction
@@ -65,8 +65,9 @@
     * **JA** -- "Jump if Above"
     * **JAE** -- "Jump if Above or Equal"
     * **JB** -- "Jump if Below"
-    * **JBE** -- "Jump if Below or Equal
-    * **JMP** FOR FLAGS
+    * **JBE** -- "Jump if Below or Equal  
+      
+    * * JMP FOR FLAGS
     * **JC** -- "Jump if Carry" -- if CF = 1 -- use for check error from call 
     * **JNC** -- if CF = 0
     * **JO** -- "Jump if Overflow" -- OF = 1
@@ -83,10 +84,10 @@
 
 ## Dictionary
 
-Bit -- unit system binaire (0 false | 1 true)  
+Bit -- binary system unit  (0 false | 1 true)  
 Octet -- 8 bit sequence  
-Word -- 2 octet = 16 bits  
-Double Word -- 4 octet = 32 bits  
+Word -- 2 octet = 16 bit 
+Double Word -- 4 octet = 32 bit 
 
 ## Sources
 
