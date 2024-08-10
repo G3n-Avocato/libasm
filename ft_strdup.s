@@ -14,7 +14,7 @@ ft_strdup:
     mov r9, rdi
     mov rdi, rax
     inc rdi
-    call malloc
+    call malloc wrt ..plt
     cmp rax, byte 0
     je _empty_str
     mov rdi, rax

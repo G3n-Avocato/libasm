@@ -82,6 +82,8 @@
 * **PUSH <_src_>** -- stack src -- sp is decremented by 2
 * **POP <_dest_>** - 
 
+* **TEST <_dest>, <_src_>** -- effectue "ET binaire" sans modif valeur mais met a jour les flags ZF/SF/PF -- use for check null res
+
 ## Dictionary
 
 Bit -- binary system unit  (0 false | 1 true)  
