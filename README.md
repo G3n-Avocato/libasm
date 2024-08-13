@@ -84,6 +84,20 @@
 
 * **TEST <_dest>, <_src_>** -- effectue "ET binaire" sans modif valeur mais met a jour les flags ZF/SF/PF -- use for check null res
 
+## Callee's Rules
+
+- allocate local variables _by using registers_ or _making space on the stack_
+> sub rsp, 12
+> add rsp, 12
+- return value in RAX - return to the caller by exec a _ret_ instruction
+
+- hold-over from the 32 bits calling convention
+> push rbp
+> mov rbp, rsp
+> ...
+> pop rbp
+
+
 ## Dictionary
 
 Bit -- binary system unit  (0 false | 1 true)  
@@ -113,3 +127,7 @@ CMD GEF GDB =>
 > ni (nexti)  
 > c (resumes execution until the next break)  
 > quit  
+> context regs
+
+- Calling Convention Src
+[Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
