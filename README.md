@@ -87,16 +87,15 @@
 ## Callee's Rules
 
 - allocate local variables _by using registers_ or _making space on the stack_
-> sub rsp, 12
+> sub rsp, 12  
 > add rsp, 12
 - return value in RAX - return to the caller by exec a _ret_ instruction
 
 - hold-over from the 32 bits calling convention
-> push rbp
-> mov rbp, rsp
-> ...
+> push rbp  
+> mov rbp, rsp  
+> ...  
 > pop rbp
-
 
 ## Dictionary
 
@@ -104,6 +103,9 @@ Bit -- binary system unit  (0 false | 1 true)
 Octet -- 8 bit sequence  
 Word -- 2 octet = 16 bit 
 Double Word -- 4 octet = 32 bit 
+
+> call malloc wrt ..plt  
+- create a procedure linkage table (PLT) entry for malloc, for shared libraries, avoids error when using absolute addresses  
 
 ## Sources
 

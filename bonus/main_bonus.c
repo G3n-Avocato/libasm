@@ -1,5 +1,5 @@
 #include "libasm_bonus.h"
-
+//tester list size and list push front with null node
 
 #include <stdio.h>
 #include <stdlib.h>
