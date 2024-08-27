@@ -13,7 +13,9 @@ SRCS_FT = ft_strlen.s \
 		ft_read.s \
 		ft_strdup.s
 
-OBJS = $(SRCS_FT:.s=.o)
+OBJSDIR = obj
+
+OBJS = $(patsubst %.s,$(OBJSDIR)/%.o,$(SRCS_FT))
 
 NAME_BONUS = bonus/libasm_bonus.a
 
@@ -25,7 +27,7 @@ SRCS_FT_BONUS = bonus/ft_list_push_front.s \
 				bonus/ft_list_size.s \
 				bonus/ft_list_sort.s
 
-OBJS_BONUS = $(SRCS_FT_BONUS:.s=.o)
+OBJS_BONUS = $(patsubst %.s,$(OBJSDIR)/%.o,$(SRCS_FT_BONUS))
 
 NASM_FLAGS = -f elf64
 
@@ -33,7 +35,7 @@ all: $(NAME)
 	@clang -g -o $(EXEC) $(SRCS) $(NAME)
 	@printf "$(GREEN)> MAKE OK!\n"
 	
-%.o: %.s
+$(OBJSDIR)/%.o: %.s
 	@nasm $(NASM_FLAGS) $< -o $@
 
 $(NAME): $(OBJS)
@@ -47,10 +49,10 @@ $(NAME_BONUS): $(OBJS_BONUS)
 	@ar rcs $@ $(OBJS_BONUS)
 
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJSDIR)/*.o
 
 clean-bonus:
-	@rm -f $(OBJS_BONUS)
+	@rm -f $(OBJSDIR)/bonus/*.o
 
 fclean: clean clean-bonus
 	@rm -f $(NAME) $(EXEC)
