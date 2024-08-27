@@ -1,6 +1,8 @@
 # ifndef LIBASM_BONUS_H
 #define LIBASM_BONUS_H
 
+#include "../libasm.h"
+
 typedef struct  s_list
 {
     void            *data;
