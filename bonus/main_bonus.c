@@ -18,6 +18,10 @@ int main(void) {
     char    *str3 = "Saucisse\n#";
     char    *str4 = "###Cheddar et Bacon###\n#";
 
+
+    int r = ft_strcmp(str3, str4);
+    printf("\nres strcmp str4 str3 = %d\n", r);
+
     //////////////////////////
     //  FT_LIST_PUSH_FRONT  //
     //////////////////////////
@@ -52,6 +56,16 @@ int main(void) {
     int res2 = ft_list_size(node);
     printf("\033[33mft_list_size for (char *) =\033[0m %d\n\n", res2);
     
+    printf("\033[33mIIbis - Linked List (char *) ft_list_sort\033[0m\n");
+    ft_list_sort(&node, (int (*)(const char *, const char *))ft_strcmp);
+    i = 0;
+    p = node;
+    while (p != NULL) {
+        printf("\033[34mdata node %d :\033[0m %s\n", i, (char *)p->data);
+        p = p->next;
+        i++;
+    }
+
     while (node != NULL) {
         p = node;
         node = node->next;
