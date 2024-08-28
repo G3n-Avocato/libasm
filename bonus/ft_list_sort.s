@@ -34,11 +34,6 @@ _call_fct:
     test rax, rax
     jle _continue               ; if inf/equal restart loop
 
-    ;mov rsi, r8                ; rec addr next node 
-    ;mov rdi, qword [r10 + 8]    ; rec addr next node
-    ;mov qword [r8 + 8], rdi    ; swap r10 + 8
-    ;mov qword [r10 + 8], r8    ; swap r8 + 8
-
     mov rsi, qword[r8]
     mov rdi, qword[r10]
 
