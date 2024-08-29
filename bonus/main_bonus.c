@@ -51,6 +51,7 @@ int main(void) {
     char    *str4 = "###Cheddar et Bacon###\n#";
     char    *str5 = "Very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnng str for test!";
     char    *str6 = "";
+    char    *str7 = NULL;
 
     //////////////////////////
     //  FT_LIST_PUSH_FRONT  //
@@ -66,6 +67,7 @@ int main(void) {
     ft_list_push_front(&node, str4);
     ft_list_push_front(&node, str5);
     ft_list_push_front(&node, str6);
+    ft_list_push_front(&node, str7);
 
     printf("\033[33mII - Linked List (char *) after 3 others ft_list_push_front\033[0m\n");
     ft_print_node(node, 0);
@@ -75,7 +77,8 @@ int main(void) {
     //////////////////////////
 
     ft_list_sort(&node, (int (*)(const char *, const char *))ft_strcmp);
-
+    //si null ranger dans liste pete pourquoi ?
+    
     printf("\033[33mIIbis - Linked List (char *) ft_list_sort\033[0m\n");    
     ft_print_node(node, 0);
 
