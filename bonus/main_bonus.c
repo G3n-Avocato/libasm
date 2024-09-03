@@ -29,15 +29,16 @@ void    ft_print_node(t_list *node, int type) {
     return ;
 }
 
-void    ft_free_node(t_list *node) {
-    t_list  *p;
+void    ft_free_node(t_list **node) {
+    t_list  *tmp = *node;
+    t_list  *p = NULL;
 
-    while (node != NULL) {
-        p = node;
-        node = node->next;
-        free(p);
+    while (tmp != NULL) {
+        p = tmp->next;
+        free(tmp);
+        tmp = p;
     }
-
+    *node = NULL;
     return ;
 }
 
@@ -67,7 +68,6 @@ int main(void) {
     ft_list_push_front(&node, str4);
     ft_list_push_front(&node, str5);
     ft_list_push_front(&node, str6);
-    ft_list_push_front(&node, str7);
 
     printf("\033[33mII - Linked List (char *) after 3 others ft_list_push_front\033[0m\n");
     ft_print_node(node, 0);
@@ -82,8 +82,7 @@ int main(void) {
     printf("\033[33mIIbis - Linked List (char *) ft_list_sort\033[0m\n");    
     ft_print_node(node, 0);
 
-    ft_free_node(node);
-    node = NULL;
+    ft_free_node(&node);
     
     int data1 = 1;
     int data2 = 62;
@@ -119,7 +118,7 @@ int main(void) {
     printf("\033[33mIV - Linked List (NULL) after ft_list_sort\033[0m\n");
     ft_print_node(_null, -1);
 
-    ft_free_node(node);
+    ft_free_node(&node);
 
     return (0);
 }

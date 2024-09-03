@@ -185,11 +185,11 @@ int main(int argc, char **argv) {
             size_t  len_str = ft_strlen(str);
 
             printf("\033[32mwrite unistd.h argv[1] =>\033[0m\n");
-            printf("\033[32m\nres write = \033[0m%zd\n", write(1, str, len_str));
+            printf("\033[32m\nres write = \033[0m%zd\n", write(1, str, -1));
             printf("\n\n");
 
             printf("\033[33mft_write argv[1] =>\033[0m\n");
-            printf("\033[33m\nres ft_write = \033[0m%zd\n", ft_write(1, str, len_str));
+            printf("\033[33m\nres ft_write = \033[0m%zd\n", ft_write(1, str, -1));
             printf("\n\n");
 
             size_t  len_str5 = ft_strlen(str5);
@@ -302,13 +302,15 @@ int main(int argc, char **argv) {
                 printf("\033[31mstrdup null\033[0m");
 
             printf("\033[32mreal strdup = \033[0m%s\n", new1);
+            printf("\033[32mreal strlen = \033[0m%lu\n", strlen(new1));
 
             char    *new2 = ft_strdup(str6);
             if (!new2)
                 printf("\033[31m ft_strdup null\033[0m");
     
             printf("\033[33mmy ft_strdup = \033[0m%s\n", new2);
-
+            printf("\033[33mmy ft_stlen = \033[0m%zu\n", ft_strlen(new2));
+            
             free(new1);
             free(new2);
             printf("\n");
@@ -318,13 +320,15 @@ int main(int argc, char **argv) {
                 printf("\033[31mstrdup null\033[0m");
 
             printf("\033[32mreal strdup = \033[0m%s\n", new1);
-
+            printf("\033[32mreal strlen = \033[0m%lu\n", strlen(new1));
+            
             new2 = ft_strdup(empty_str);
             if (!new2)
                 printf("\033[31m ft_strdup null\033[0m");
     
             printf("\033[33mmy ft_strdup = \033[0m%s\n", new2);
-
+            printf("\033[33mmy ft_stlen = \033[0m%zu\n", ft_strlen(new2));
+            
             free(new1);
             free(new2);
             printf("\n");
@@ -334,12 +338,14 @@ int main(int argc, char **argv) {
                 printf("\033[31mstrdup null\033[0m");
 
             printf("\033[32mreal strdup = \033[0m%s\n", new1);
+            printf("\033[32mreal strlen = \033[0m%lu\n", strlen(new1));
 
             new2 = ft_strdup(one_c);
             if (!new2)
                 printf("\033[31m ft_strdup null\033[0m");
     
             printf("\033[33mmy ft_strdup = \033[0m%s\n", new2);
+            printf("\033[33mmy ft_stlen = \033[0m%zu\n", ft_strlen(new2));
 
             free(new1);
             free(new2);
@@ -350,12 +356,34 @@ int main(int argc, char **argv) {
                 printf("\033[31mstrdup null\033[0m");
 
             printf("\033[32mreal strdup = \033[0m%s\n", new1);
+            printf("\033[32mreal strlen = \033[0m%lu\n", strlen(new1));
 
             new2 = ft_strdup(l_str);
             if (!new2)
                 printf("\033[31m ft_strdup null\033[0m");
     
             printf("\033[33mmy ft_strdup = \033[0m%s\n", new2);
+            printf("\033[33mmy ft_stlen = \033[0m%zu\n", ft_strlen(new2));
+
+            free(new1);
+            free(new2);
+            printf("\n");
+
+            new1 = strdup(str);
+            if (!new1)
+                printf("\033[31mstrdup null\033[0m");
+
+            printf("\033[32mreal strdup = \033[0m%s\n", new1);
+            printf("\033[32mreal strlen = \033[0m%lu\n", strlen(new1));
+
+            new2 = ft_strdup(str);
+            if (!new2)
+                printf("\033[31m ft_strdup null\033[0m");
+    
+            printf("\033[33mmy ft_strdup = \033[0m%s\n", new2);
+            printf("\033[33mmy ft_stlen = \033[0m%zu\n", ft_strlen(new2));
+
+            printf("res strcmp = %d\n", strcmp(str, new2));
 
             free(new1);
             free(new2);

@@ -17,7 +17,7 @@ OBJSDIR = obj
 
 OBJS = $(patsubst %.s,$(OBJSDIR)/%.o,$(SRCS_FT))
 
-NAME_BONUS = bonus/libasm_bonus.a
+#NAME_BONUS = bonus/libasm_bonus.a
 
 EXEC_BONUS = libasm_bonus
 
@@ -43,19 +43,19 @@ build:
 $(OBJSDIR)/%.o: %.s
 	@nasm $(NASM_FLAGS) $< -o $@
 
-$(NAME): $(OBJS)
-	@ar rcs $@ $(OBJS)
+$(NAME): $(OBJS) $(OBJS_BONUS)
+	@ar rcs $@ $(OBJS) $(OBJS_BONUS)
 
-bonus: build-bonus $(NAME_BONUS)
-	@clang -g -o $(EXEC_BONUS) $(SRCS_BONUS) $(NAME_BONUS)
+bonus: build-bonus $(NAME)
+	@clang -g -o $(EXEC_BONUS) $(SRCS_BONUS) $(NAME)
 	@printf "$(GREEN)> MAKE BONUS OK!\n"
 
 build-bonus:
 	@mkdir -p $(OBJSDIR)/bonus
 	@printf "$(GREEN)> $(OBJSDIR)/bonus OK!\n"
 
-$(NAME_BONUS): $(OBJS_BONUS)
-	@ar rcs $@ $(OBJS_BONUS)
+#$(NAME_BONUS): $(OBJS_BONUS)
+#	@ar rcs $@ $(OBJS_BONUS)
 
 clean:
 	@rm -f $(OBJSDIR)/*.o

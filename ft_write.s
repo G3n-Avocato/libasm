@@ -13,8 +13,10 @@ ft_write:
 
 _error:
     neg rax
-    mov rdi, rax 
-    call __errno_location
-    mov [rax], rdi
+    ;mov rdi, rax 
+    push rax
+    call __errno_location wrt ..plt
+    pop rdx
+    mov [rax], rdx
     mov rax, -1
     ret
