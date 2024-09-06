@@ -13,7 +13,6 @@ ft_write:
 
 _error:
     neg rax
-    ;mov rdi, rax 
     push rax
     call __errno_location wrt ..plt
     pop rdx

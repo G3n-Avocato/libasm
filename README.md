@@ -133,3 +133,6 @@ CMD GEF GDB =>
 
 - Calling Convention Src
 [Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
+
+instruction boucle while
+repz movsb

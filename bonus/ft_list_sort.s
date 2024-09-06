@@ -11,30 +11,30 @@ ft_list_sort:
 _start:
     cmp rsi, 0                  ; check if fct cmp not NULL
     je _ret
-    mov rbp, rdi         ; mov args fct list sort in rbp to free rdi & rsi
+    mov rbp, rdi                ; mov args fct list sort in rbp to free rdi & rsi
     mov rdx, rsi
 
 _first_node:
-    mov rdi, rbp
-    mov r8, [rdi]              ; rec addr first node list
+    mov rdi, rbp               ; recover addr list
+    mov r8, [rdi]              ; rec first node himself
     cmp r8, 0                  ; check first node not NULL
     je _ret
 
 _data_in_reg:
-    mov rdi, qword [r8]
-    mov r10, qword [r8 + 8]
+    mov rdi, qword [r8]         ; rec data 1 in first node 
+    mov r10, qword [r8 + 8]     ; rec addr  for second node
     
     cmp r10, 0
     je _ret                     ; end list, exit fct
     
-    mov rsi, qword [r10]
+    mov rsi, qword [r10]        ; rec data 2 in second node
 
 _call_fct:
     call rdx                    ; appel fct cmp 
     test rax, rax
     jle _continue               ; if inf/equal restart loop
 
-    mov rsi, qword[r8]
+    mov rsi, qword[r8]          ; swap data content
     mov rdi, qword[r10]
 
     mov qword[r8], rdi
@@ -43,7 +43,7 @@ _call_fct:
     jmp _first_node
 
 _continue:
-    mov r8, r10
+    mov r8, r10                 ; mov +1 in node, a = b et b = c
     jmp _data_in_reg
 
 _ret:

@@ -1,7 +1,5 @@
 #include "libasm_bonus.h"
 
-//test avec null data for push_front list_size and list sort 
-
 void    ft_print_node(t_list *node, int type) {
     int     i = 0;
     int     res = 0;
@@ -77,7 +75,6 @@ int main(void) {
     //////////////////////////
 
     ft_list_sort(&node, (int (*)(const char *, const char *))ft_strcmp);
-    //si null ranger dans liste pete pourquoi ?
     
     printf("\033[33mIIbis - Linked List (char *) ft_list_sort\033[0m\n");    
     ft_print_node(node, 0);

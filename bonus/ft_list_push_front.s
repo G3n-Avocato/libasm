@@ -20,14 +20,14 @@ ft_list_push_front:
     mov rbp, rsp
 
 _alloc_node:
-    sub rsp, 16                     ; fais de la place sur la stack
+    sub rsp, 16                     ; do some space on stack
 
-    mov [rbp - 16], rdi             ; mov node dans stack
-    mov [rbp - 8], rsi              ; mov data dans stack
+    mov [rbp - 16], rdi             ; mov node in stack
+    mov [rbp - 8], rsi              ; mov data in stack
 
     mov rdi, 16
     call malloc wrt ..plt
-    test rax, rax                   ; malloc in rax
+    test rax, rax                   ; malloc is in rax
     je _null_malloc
 
     mov rdi, [rbp - 8]              ; get back data
