@@ -110,13 +110,13 @@ This is why you must always check wich registers are used by this external funct
 
 ## Dictionary
 
-Bit -- binary system unit  (0 false | 1 true)  
-Octet -- 8 bit sequence  
-Word -- 2 octet = 16 bit 
-Double Word -- 4 octet = 32 bit 
+- Bit -- binary system unit  (0 false | 1 true)  
+- Octet -- 8 bit sequence  
+- Word -- 2 octet = 16 bit   
+- Double Word -- 4 octet = 32 bit  
 
-> call malloc wrt ..plt  
 - create a procedure linkage table (PLT) entry for malloc, for shared libraries, avoids error when using absolute addresses  
+> call malloc wrt ..plt  
 
 ## Sources
 
