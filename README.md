@@ -84,18 +84,29 @@
 
 * **TEST <_dest>, <_src_>** -- effectue "ET binaire" sans modif valeur mais met a jour les flags ZF/SF/PF -- use for check null res
 
+* **REPZ MOVSB** -- create instruction for loop in one line
+
 ## Callee's Rules
 
 - allocate local variables _by using registers_ or _making space on the stack_
-> sub rsp, 12  
-> add rsp, 12
-- return value in RAX - return to the caller by exec a _ret_ instruction
+> sub rsp, 16  
+> add rsp, 16
+- return value is in RAX - return to the caller by exec a _ret_ instruction
 
 - hold-over from the 32 bits calling convention
 > push rbp  
 > mov rbp, rsp  
 > ...  
 > pop rbp
+
+- node size equ = 16 -> why ? -> 8 octets = value + 8 octets = addr ptr head linked list  
+> [rbp - 16], rdi  
+> [rbp - 8], rsi  
+
+- call extern fct corrupts the registers, they are modified when the external fct returns. 
+This is why you must always check wich registers are used by this external function.  
+
+- we cannot make two memory accesses on the same line   
 
 ## Dictionary
 
@@ -133,6 +144,3 @@ CMD GEF GDB =>
 
 - Calling Convention Src
 [Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
-
-instruction boucle while
-repz movsb

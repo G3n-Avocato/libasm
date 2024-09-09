@@ -4,17 +4,6 @@ section .text
     global ft_list_push_front
     extern malloc
 
-; permet gestion propre de la pile, pour restaurer rbp
-; acces au parametre et var locales, creer ou manipulation de node rbp peut etre utiliser pour acceder facilement au element sans perturber la pile
-; convention d'appel
-
-; node_size equ 16 ; 8 octets = value + 8 octets = pointeur
-; rbp = stock pointeur start linked list 
-
-; call fonction exterieur corrompt les registres
-; on ne peut pas faire 2 acces a la memoire sur une mm ligne
-; deplace de case en case
-
 ft_list_push_front:
     push rbp
     mov rbp, rsp
