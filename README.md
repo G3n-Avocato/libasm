@@ -125,22 +125,22 @@ This is why you must always check wich registers are used by this external funct
 The __errno_location() function shall return the address of the errno variable for the current thread.
   
 Fonction C :  
-> int *ernno_location {
->     static int erno = 0;
->     return (&erno);
-> }
-> 
-> #define ernno (*ernno_location())
+> int *ernno_location {  
+>     static int erno = 0;  
+>     return (&erno);  
+> }  
+>   
+> #define ernno (*ernno_location())  
   
 ASM :  
-> call erno_location
-> mov [rax], erno_value
-> mov rax, -1
-> ret
+> call erno_location  
+> mov [rax], erno_value  
+> mov rax, -1  
+> ret  
     
 C :  
-> int *otr = ernno_location();
-> *otr = 0;
+> int *otr = ernno_location();  
+> *otr = 0;  
 
 
 ## Sources
