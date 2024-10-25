@@ -12,7 +12,7 @@ _start:
     cmp rsi, 0                  ; check if fct cmp not NULL
     je _ret
     mov rbp, rdi                ; mov args fct list sort in rbp to free rdi & rsi
-    mov rdx, rsi
+    mov r9, rsi
 
 _first_node:
     mov rdi, rbp               ; recover addr list
@@ -30,8 +30,10 @@ _data_in_reg:
     mov rsi, qword [r10]        ; rec data 2 in second node
 
 _call_fct:
-    call rdx                    ; appel fct cmp 
-    test rax, rax
+    push r10                    ; push on stack val r10
+    call r9                     ; appel fct cmp                
+    test eax, eax
+    pop r10
     jle _continue               ; if inf/equal restart loop
 
     mov rsi, qword[r8]          ; swap data content

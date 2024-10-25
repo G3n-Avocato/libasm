@@ -174,6 +174,16 @@ int main(int argc, char **argv) {
             printf("\033[33mft_strcmp res = \033[0m%d\n", res8);
             printf("\n");
 
+            char *po = "a";
+            char *po1 = "A";
+            int uno = strcmp(po, po1);
+            int dos = ft_strcmp(po, po1);
+            
+            printf("cmp %s -> %s\n", po, po1);
+            printf("\033[32mstrcmp res = \033[0m%d\n", uno);
+            printf("\033[33mft_strcmp res = \033[0m%d\n", dos);
+            printf("\n");
+
             if (cas != 0)
                 break;
         case 4:
@@ -184,13 +194,13 @@ int main(int argc, char **argv) {
 
             size_t  len_str = ft_strlen(str);
 
-            printf("\033[32mwrite unistd.h argv[1] =>\033[0m\n");
-            printf("\033[32m\nres write = \033[0m%zd\n", write(1, str, -1));
-            printf("\n\n");
+            // printf("\033[32mwrite unistd.h argv[1] =>\033[0m\n");
+            // printf("\033[32m\nres write = \033[0m%zd\n", write(1, str, -1));
+            // printf("\n\n");
 
-            printf("\033[33mft_write argv[1] =>\033[0m\n");
-            printf("\033[33m\nres ft_write = \033[0m%zd\n", ft_write(1, str, -1));
-            printf("\n\n");
+            // printf("\033[33mft_write argv[1] =>\033[0m\n");
+            // printf("\033[33m\nres ft_write = \033[0m%zd\n", ft_write(1, str, -1));
+            // printf("\n\n");
 
             size_t  len_str5 = ft_strlen(str5);
 

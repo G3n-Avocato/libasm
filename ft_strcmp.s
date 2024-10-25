@@ -4,9 +4,10 @@ section .text
         global ft_strcmp
 
 ft_strcmp:
+    xor rax, rax
+    xor rbx, rbx
     push rdi
     push rsi
-    xor rcx, rcx
 
 _ft_strcmp_loop:
     mov al, byte[rdi]
@@ -31,11 +32,11 @@ _not_equal:
     jmp _s2_sup
 
 _s1_sup:
-    mov rax, 1
+    sub rax, rbx
     jmp _ft_end
 
 _s2_sup:
-    mov rax, -1
+    sub rax, rbx
     jmp _ft_end
 
 _equal:

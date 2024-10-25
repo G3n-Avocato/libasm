@@ -17,8 +17,6 @@ OBJSDIR = obj
 
 OBJS = $(patsubst %.s,$(OBJSDIR)/%.o,$(SRCS_FT))
 
-NAME_BONUS = bonus/libasm_bonus.a
-
 EXEC_BONUS = libasm_bonus
 
 SRCS_BONUS = bonus/main_bonus.c
@@ -53,9 +51,6 @@ bonus: build-bonus $(NAME) $(OBJS_BONUS)
 build-bonus:
 	@mkdir -p $(OBJSDIR)/bonus
 	@printf "$(GREEN)> $(OBJSDIR)/bonus OK!\n"
-
-#$(NAME_BONUS): $(OBJS_BONUS)
-#	@ar rcs $@ $(OBJS_BONUS)
 
 clean:
 	@rm -f $(OBJSDIR)/*.o
