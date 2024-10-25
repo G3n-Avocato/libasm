@@ -152,10 +152,7 @@ C :
 [gladir instruction](https://www.gladir.com/CODER/ASM8086/x86-64.htm)
 
 - Tuto asm x86_32 start  
-[intro](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm)
-
-- Debug asm  
-[gef debug asm](https://github.com/hugsy/gef?tab=readme-ov-file)
+[intro](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm)  
 
 - Calling Convention Src  
 [Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)  
