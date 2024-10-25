@@ -1,5 +1,8 @@
 # libasm
-**Intel Syntax :   <_instruction_> <_dest_>, <_src_>**
+**Intel Syntax :   <_instruction_> <_dest_>, <_src_>**  
+**Compile Rules :   <_clang -c main.c -o main.o_>  
+<_nasm -f elf64 ft_strlen.s -o ft_strlen.o_>  
+<_clang main.o ft_strlen.o -o program_name_>**
 
 ## Doc ASM x86_64 linux
 * Section
@@ -118,6 +121,28 @@ This is why you must always check wich registers are used by this external funct
 - create a procedure linkage table (PLT) entry for malloc, for shared libraries, avoids error when using absolute addresses  
 > call malloc wrt ..plt  
 
+- ernno_location - 
+The __errno_location() function shall return the address of the errno variable for the current thread.
+  
+Fonction C :  
+> int *ernno_location {
+>     static int erno = 0;
+>     return (&erno);
+> }
+> 
+> #define ernno (*ernno_location())
+  
+ASM :  
+> call erno_location
+> mov [rax], erno_value
+> mov rax, -1
+> ret
+    
+C :  
+> int *otr = ernno_location();
+> *otr = 0;
+
+
 ## Sources
 
 - Syscall asm x86_64  
@@ -132,6 +157,12 @@ This is why you must always check wich registers are used by this external funct
 - Debug asm  
 [gef debug asm](https://github.com/hugsy/gef?tab=readme-ov-file)
 
+- Calling Convention Src  
+[Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)  
+
+- Debug asm  
+[gef debug asm](https://github.com/hugsy/gef?tab=readme-ov-file)
+
 CMD GEF GDB =>  
 > gdb <_name_exec_>  
 > break <_name_fct_>  
@@ -141,6 +172,3 @@ CMD GEF GDB =>
 > c (resumes execution until the next break)  
 > quit  
 > context regs
-
-- Calling Convention Src
-[Calling convention x86_64](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
