@@ -125,9 +125,9 @@ This is why you must always check wich registers are used by this external funct
 The __errno_location() function shall return the address of the errno variable for the current thread.
   
 Fonction C :  
-> int *ernno_location {  
->     static int erno = 0;  
->     return (&erno);  
+> int   *ernno_location {  
+>   static int    erno = 0;  
+>   return (&erno);  
 > }  
 >   
 > #define ernno (*ernno_location())  
